@@ -81,8 +81,8 @@ class App:
         self.screen.fill(self.colors['background'])  # Fill background
 
         self.camera.draw_map_scale(self.screen, offset=(140, 15))  # Draw map scale
-        Text("FPS: " + str(int(self.clock.get_fps())), (0, 0, 0), 20).print(self.screen,
-                                                                            (self.width - 70, self.height - 21),
+        Text("FPS: " + str(int(self.clock.get_fps())), [0, 0, 0], 20).print(self.screen,
+                                                                            [self.width - 70, self.height - 21],
                                                                             False)  # FPS counter
         # -*-*-                 -*-*-
 
