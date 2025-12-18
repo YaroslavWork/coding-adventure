@@ -10,6 +10,7 @@ def run_and_return_environment(source_code: str):
     parser = Parser(tokens)
     ast = parser.parse_program()
     interpreter = Interpreter()
+    print(ast)
     for statement in ast:
         interpreter.visit(statement)
     return interpreter.environment
