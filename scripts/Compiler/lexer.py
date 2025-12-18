@@ -1,5 +1,5 @@
 import re
-from tokens import TOKEN_TYPES
+from .tokens import TOKEN_TYPES
 
 def lexer(code):
     tokens = []

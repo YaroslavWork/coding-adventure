@@ -37,6 +37,15 @@ class VariableAccessNode(ASTNode):
         return f"VariableAccess({self.identifier})"
 
 
+class VariableAssignNode(ASTNode):
+    def __init__(self, identifier: str, value: ASTNode):
+        self.identifier: str = identifier
+        self.value: ASTNode = value
+
+    def __repr__(self):
+        return f"VariableAssign({self.identifier}, {self.value})"
+
+
 # Operation Nodes
 class BinaryOpNode(ASTNode):
     def __init__(self, left: ASTNode, operator: str, right: ASTNode):
@@ -57,7 +66,7 @@ class UnaryOpNode(ASTNode):
         return f"UnaryOp('{self.operator}', {self.operand})"
 
 # Statement Nodes
-class VarDeclarationNode(ASTNode):
+class VariableDeclarationNode(ASTNode):
     def __init__(self, identifier: str, value: ASTNode):
         self.identifier: str = identifier
         self.value: ASTNode = value
