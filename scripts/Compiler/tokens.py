@@ -32,7 +32,7 @@ TOKEN_TYPES = [
     ('LESS_THAN', r'<'),
     ('GREATER_THAN', r'>'),
     
-
+    ('FLOAT', r'\d+\.\d+'),
     ('NUMBER', r'\d+'),
     ('STRING', r'"[^"]*"|\'[^\']*\''),
     ('IDENTIFIER', r'[a-zA-Z_][a-zA-Z0-9_]*'),
