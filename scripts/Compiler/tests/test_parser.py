@@ -1,7 +1,6 @@
 import os, sys
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../../..')))
 
-from scripts.Compiler.lexer import lexer
 from scripts.Compiler.parser import Parser
 from scripts.Compiler.abstract_syntax_tree import *
 
