@@ -5,6 +5,7 @@ from scripts.camera import Camera
 from scripts.field import Field
 from scripts.UI.text import Text
 
+from scripts.Game.server import Server
 
 class App:
 
@@ -34,6 +35,9 @@ class App:
         # This line takes data from save file
         self.field = Field()
 
+        # Game attributes
+        self.servers = [Server()]
+
     def update(self) -> None:
         """
         Main update function of the program.
@@ -55,22 +59,23 @@ class App:
                     pass
 
             if event.type == pygame.KEYDOWN:  # If key button down...
-                if event.key == pygame.K_SPACE:
-                    pass
+                unicode = event.unicode
+                for server in self.servers:
+                    server.key_event_down(unicode)
 
-        self.keys = pygame.key.get_pressed()  # Get all keys (pressed or not)
-        if self.keys[pygame.K_LEFT] or self.keys[pygame.K_a]:
-            self.camera.move_left(1, self.dt)
-        if self.keys[pygame.K_RIGHT] or self.keys[pygame.K_d]:
-            self.camera.move_right(1, self.dt)
-        if self.keys[pygame.K_UP] or self.keys[pygame.K_w]:
-            self.camera.move_up(1, self.dt)
-        if self.keys[pygame.K_DOWN] or self.keys[pygame.K_s]:
-            self.camera.move_down(1, self.dt)
-        if self.keys[pygame.K_e]:
-            self.camera.scale_in(1, self.dt)
-        if self.keys[pygame.K_q]:
-            self.camera.scale_out(1, self.dt)
+            
+        # if self.keys[pygame.K_LEFT] or self.keys[pygame.K_a]:
+        #     self.camera.move_left(1, self.dt)
+        # if self.keys[pygame.K_RIGHT] or self.keys[pygame.K_d]:
+        #     self.camera.move_right(1, self.dt)
+        # if self.keys[pygame.K_UP] or self.keys[pygame.K_w]:
+        #     self.camera.move_up(1, self.dt)
+        # if self.keys[pygame.K_DOWN] or self.keys[pygame.K_s]:
+        #     self.camera.move_down(1, self.dt)
+        # if self.keys[pygame.K_e]:
+        #     self.camera.scale_in(1, self.dt)
+        # if self.keys[pygame.K_q]:
+        #     self.camera.scale_out(1, self.dt)
         # -*-*-             -*-*-
 
         # -*-*- Physics Block -*-*-
